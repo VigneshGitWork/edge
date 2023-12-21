@@ -17,7 +17,7 @@ function initialize(temp) {
             // const fragment = document.createRange().createContextualFragment(htmlString);
 
             function removeLinks(html) {
-                let links = ``;
+                let links = "";
                 var container = document.createElement('span');
                 container.innerHTML = html;
                 Array.from(container.querySelectorAll('link[href*="site"]')).forEach(link=>{
