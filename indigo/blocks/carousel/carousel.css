@@ -1,3 +1,13 @@
+.carousel-wrapper {
+  padding-bottom: 200px;
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 0;
+}
 .slider {
     position: relative;
 }
