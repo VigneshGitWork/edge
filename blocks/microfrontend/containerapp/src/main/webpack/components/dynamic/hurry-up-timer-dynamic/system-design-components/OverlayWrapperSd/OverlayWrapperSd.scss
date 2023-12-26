@@ -1,0 +1,11 @@
+$overlay-bg: get-color("white");
+
+.indigo-overlay-wrapper-container-app {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: rgba($color: $overlay-bg, $alpha: 0.8);
+}

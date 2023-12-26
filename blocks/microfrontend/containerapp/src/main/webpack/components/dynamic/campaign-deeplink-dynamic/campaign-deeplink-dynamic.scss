@@ -1,0 +1,234 @@
+.deeplink-intermediate-page {
+	.popup-modal-with-content {
+		background: none;
+		&__content {
+			max-width: 450px;
+
+			.invalid-url {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 10px;
+				&__icon {
+					position: relative;
+					display: inline-block;
+					font-weight: bold;
+					color: #ffc107;
+
+					&:before {
+						position: absolute;
+						top: 50%;
+						right: 12px;
+						font-size: 16px;
+						color: #ffffff;
+						transform: translateY(-36%);
+						z-index: 1;
+						content: "!";
+					}
+					&:after {
+						display: inline-block;
+						margin-left: 3px;
+						font-size: 5px;
+						border: solid 3em transparent;
+						border-top-width: 0;
+						border-bottom-width: 5em;
+						border-bottom-color: #ffc107;
+						clip-path: circle(54% at 50% 69%);
+						vertical-align: bottom;
+						content: "";
+					}
+				}
+				&__heading {
+					font-size: 18px;
+					font-weight: 500;
+				}
+				&__label {
+					font-size: 14px;
+					margin-top: -10px;
+				}
+				.custom-button {
+					min-width: 0;
+					padding: 0 rem(18px);
+					width: 100%;
+					height: rem(36px);
+					span {
+						font-weight: normal;
+						font-size: rem(14px);
+					}
+				}
+			}
+		}
+	}
+
+	.overlay {
+		background: rgba(255, 255, 255, 0.7);
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 99999999;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mainLoader-cont {
+		display: flex;
+		height: 100%;
+		cursor: wait;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		img {
+			margin: auto;
+			width: 64px;
+			height: 64px;
+		}
+
+		#circleG-dark {
+			width: auto;
+			margin: unset;
+		}
+	}
+
+	button.custom-button {
+		outline: none !important;
+		:focus-visible {
+			outline: none !important;
+		}
+		span {
+			font-weight: 600;
+		}
+	}
+
+	.skyplus-otpInput {
+		.resend-otp-button {
+			margin-top: 20px;
+			margin-bottom: 8px;
+			display: block;
+			cursor: pointer;
+			color: #0d6efd;
+		}
+		.resend-otp-message {
+			margin-top: 20px;
+			margin-bottom: 8px;
+			display: block;
+
+			span {
+				color: green;
+			}
+		}
+		&__container {
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			margin-bottom: rem(4px);
+
+			&.right::after {
+				font-family: "indigo";
+				content: "\e952";
+				margin-left: 10px;
+				color: green;
+				align-self: center;
+				font-size: 18px;
+			}
+		}
+
+		.otp-error {
+			color: #dc3545;
+			margin-bottom: rem(20px);
+			background-color: #f8d7da;
+			border-color: #f5c6cb;
+			border-radius: 4px;
+			display: table;
+			padding: 1px 20px 1px 5px;
+			font-weight: 400;
+
+			&::before {
+				font-family: "indigo";
+				content: "\e9ff";
+				margin-right: 2px;
+			}
+		}
+
+		&__otp-input {
+			width: rem(40px);
+			margin: 0 rem(8px);
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			input {
+				width: 100%;
+				text-align: center;
+				color: black;
+			}
+		}
+
+		.otp-fields__sub-heading {
+			font-size: rem(24px);
+			font-weight: 700;
+			margin-top: rem(10px);
+		}
+
+		.otp-fields {
+			padding: 16px 0px !important;
+		}
+
+		.otp-fields__buttonRight {
+			justify-content: flex-end;
+			margin-top: rem(16px);
+
+			.custom-button {
+				min-width: 0;
+				padding: 0 rem(24px);
+			}
+		}
+
+		.popup-modal-with-content__content {
+			max-width: rem(500px);
+
+			div {
+				padding: 0 rem(10px);
+			}
+
+			.popup-modal-with-content__close-overlay-button {
+				margin-left: rem(-15px);
+			}
+		}
+
+		form {
+			margin: rem(20px) 0 rem(20px) 0;
+		}
+
+		.skyplus-otpInput__otp-input {
+			input {
+				max-width: rem(32px);
+				width: rem(32px);
+
+				@include media(">=tablet") {
+					max-width: rem(50px);
+					width: rem(50px);
+				}
+			}
+		}
+	}
+
+	.circleG-dark {
+		width: 12px;
+		height: 12px;
+	}
+
+	.skyplus-design-toast-container {
+		max-width: 500px;
+
+		ul {
+			margin: unset;
+			padding: unset;
+		}
+	}
+}

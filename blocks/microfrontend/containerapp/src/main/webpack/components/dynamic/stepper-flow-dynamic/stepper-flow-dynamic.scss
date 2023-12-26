@@ -1,0 +1,192 @@
+.stepper-header-placeholder {
+	.skyplus-container-stepper {
+		list-style: none;
+		font-size: rem(12px);
+		text-transform: uppercase;
+		display: none;
+		margin: 0;
+		padding: 0;
+
+		@include media(">=tablet") {
+			display: flex;
+		}
+
+		&--one {
+			.skyplus-container-stepper {
+				&__stage:nth-child(n + 2) {
+					color: #999;
+					cursor: unset;
+				}
+
+				&__stage:nth-child(n + 1) {
+					.skyplus-container-stepper {
+						&__stage__icon__line {
+							background-color: #999;
+						}
+					}
+				}
+			}
+		}
+
+		&--two {
+			.skyplus-container-stepper {
+				&__stage:nth-child(n + 3) {
+					color: #999;
+					cursor: unset;
+				}
+
+				&__stage:nth-child(n + 2) {
+					.skyplus-container-stepper {
+						&__stage__icon__line {
+							background-color: #999;
+						}
+					}
+				}
+			}
+		}
+
+		&--three {
+			.skyplus-container-stepper {
+				&__stage:nth-child(n + 4) {
+					color: #999;
+					cursor: unset;
+				}
+
+				&__stage:nth-child(n + 3) {
+					.skyplus-container-stepper {
+						&__stage__icon__line {
+							background-color: #999;
+						}
+					}
+				}
+			}
+		}
+
+		&__stage {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-right: 30px;
+			justify-content: end;
+			row-gap: 4px;
+			color: #01a860;
+
+			&__label {
+				font-size: 11px;
+				display: block;
+				text-align: center;
+				text-transform: uppercase;
+			}
+
+			&__icon {
+				position: relative;
+
+				&::before {
+					@include indigoIcon;
+
+					font-size: 18px;
+					line-height: 1;
+				}
+
+				&__line {
+					width: 62px;
+					height: 1.5px;
+					background-color: #15b06d;
+					position: absolute;
+					top: 10px;
+					left: 25px;
+				}
+			}
+
+			&--add-passenger {
+				margin-right: 22px;
+
+				&__icon {
+					&::before {
+						content: "\e9f0";
+					}
+
+					&__line {
+						width: 52px;
+					}
+				}
+			}
+
+			&--addon {
+				&__icon {
+					&::before {
+						content: "\e9f6";
+					}
+
+					&__line {
+						left: 30px;
+						width: 52px;
+					}
+				}
+			}
+
+			&--seat-select {
+				margin-right: 36px;
+
+				&__icon {
+					&::before {
+						content: "\e9f9";
+					}
+
+					&__line {
+						width: 52px;
+					}
+				}
+			}
+
+			&--payment {
+				&__icon {
+					&::before {
+						font-size: 15px;
+						content: "\ea0a";
+					}
+
+					&__line {
+						display: none;
+					}
+				}
+			}
+			&__pointer {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.stepper-go-backicon {
+	font-size: 15px;
+	line-height: 1;
+	display: inline-block;
+	padding: 0 4px;
+	vertical-align: middle;
+	font-family: indigo !important;
+	font-weight: 400;
+
+	&::after {
+		content: "\e9dc";
+	}
+}
+
+.stepper-show-only-mobile {
+	@include media(">=tablet") {
+		display: none;
+	}
+}
+
+.skyplus6e-header__container {
+	> .skyplus6e-header__stepper-flow {
+		position: absolute;
+		width: 100vw;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}

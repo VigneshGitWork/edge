@@ -1,0 +1,60 @@
+.common-logic-container {
+	&-popup {
+		background: transparent;
+		color: #222;
+		height: 100%;
+		left: 0;
+		overflow: auto;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 999999;
+
+		&__content {
+			padding: 30px 40px 40px 30px;
+			min-height: fit-content;
+			width: 100%;
+			background-color: #fff;
+			border-radius: 8px;
+			box-shadow: 0 0 10px -4px #777;
+			height: auto;
+			@include media(">=tablet") {
+				width: 491px;
+			}
+		}
+
+		&__overlay {
+			align-items: center;
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			width: 100%;
+			background: hsla(0, 0%, 100%, 0.9);
+		}
+
+		&__header {
+			column-gap: 1rem;
+			display: flex;
+			padding-bottom: 10px;
+		}
+
+		.common-logic-info {
+			&__heading {
+				color: #222;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 1.5rem;
+				margin-bottom: 0.625rem;
+				padding-bottom: 0.625rem;
+				text-align: left;
+			}
+
+			&__content {
+				color: #555;
+				font-size: 1rem;
+				margin-bottom: 2rem;
+				overflow: auto;
+			}
+		}
+	}
+}

@@ -1,0 +1,71 @@
+.popup-dialog-box.popup-modal-with-content-container-app {
+  &__container {
+    &.indigo-overlay-wrapper {
+      display: flex;
+      &.popup-modal-with-content__direction {
+        &-top {
+          align-items: flex-start;
+        }
+        &-center {
+          align-items: center;
+        }
+        &-bottom {
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+}
+
+body.scroll-is-disable-for-dialog {
+  overflow: hidden;
+}
+
+.popup-dialog-box-container-app .popup-modal-with-content-container-app {
+  &__box {
+    flex: 1;
+    @include media("<desktop") {
+      overflow: auto;
+      height: 100%;
+    }
+  }
+
+  &__bg-overlay {
+      align-items: flex-start;
+      background: transparent;
+  }
+
+  &__label {
+    margin: 1rem 0;
+  }
+
+  &__close-overlay-button {
+    padding: 0.5rem;
+    transform: translateX(-0.5rem);
+  }
+
+  &__content {
+      width: 100%;
+      padding: 1.5rem;
+      max-width: inherit;
+  
+      @include media("<desktop") {
+        max-width: 100vw !important;
+        min-height: 100vh;
+        overflow: auto;
+      }
+
+      &.height-adaptable {
+        height: auto;
+      }
+      
+      &-container {
+          max-width: inherit;
+          @include media(">=desktop") {
+              max-width: 1442px;
+              margin: 0 auto;
+              padding: 0 16px;
+          }
+      }
+  }
+}

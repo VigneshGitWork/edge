@@ -1,0 +1,24 @@
+@import "../../../site/core-components/sass/variables";
+@import "../../../site/scss/colors";
+
+.pnr-details-dynamic {
+	display: none;
+	@include media(">=tablet") {
+		display: block;
+	}
+	.pnr {
+		font-size: 12px;
+		line-height: 1.5;
+		font-family: "Open Sans", Arial;
+		color: #222;
+		display: contents;
+	}
+	.booking-date {
+		font-weight: normal;
+		font-size: 12px;
+		line-height: 1.5;
+		font-family: "Open Sans", Arial;
+		color: #666;
+		margin-left: 1rem;
+	}
+}

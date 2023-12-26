@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkskyplus_container_app=self.webpackChunkskyplus_container_app||[]).push([[8765],{98765:function(n,e,t){t.r(e);var a={getMessage:function(n){return window.Granite&&window.Granite.I18n&&window.Granite.I18n.get(n)||n}};e.default=a}}]);
