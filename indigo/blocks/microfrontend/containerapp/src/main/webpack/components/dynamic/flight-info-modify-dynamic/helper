@@ -1,0 +1,85 @@
+import { paxCodes, journeyTypeCode } from "../../../utils/constants/common";
+import { UTIL_CONSTANTS, formatDate } from "../../../utils";
+
+const helper = {
+	getModifySearchprops(flightInfo, labels) {
+		const {
+			selectedDestinationCityInfo = {},
+			selectedSourceCityInfo = {},
+			selectedTravelDatesInfo = {},
+			selectedPaxInformation = {},
+			selectedJourneyType = {},
+			selectedMultiCityInfo = [],
+		} = flightInfo || {};
+		const { passengersLabel = "", modifySearchLabel = "" } = labels;
+		const paxLabel = window.innerWidth < 390 ? "Pax" : passengersLabel;
+		const departureDestination =
+			selectedSourceCityInfo?.city || selectedSourceCityInfo?.cityCode || "";
+		const arrivalDestination =
+			selectedDestinationCityInfo?.city ||
+			selectedDestinationCityInfo?.cityCode ||
+			"";
+		const dateAndTime = selectedTravelDatesInfo?.startDate || "";
+		const enddateAndTime = selectedTravelDatesInfo?.endDate || "";
+
+		const paxInfo = selectedPaxInformation?.types || [];
+		const count = paxInfo.reduce((acc, item) => {
+			let tempAcc = acc;
+			if (
+				item.type !== paxCodes.infant.code &&
+				(!item.discountCode ||
+					item.discountCode === paxCodes.seniorCitizen.discountCode)
+			) {
+				tempAcc = item.count + acc;
+			}
+			return tempAcc;
+		}, 0);
+		let journeyDate = "";
+		if (dateAndTime) {
+			const date = formatDate(dateAndTime,UTIL_CONSTANTS.DAY_SLASH_MONTH);
+			journeyDate = date.replace("/", " ");
+		}
+
+		const journeyType = selectedJourneyType ? selectedJourneyType?.value : "";
+
+		if (journeyType === journeyTypeCode?.MULTI_CITY) {
+			const multiCityDateTime =
+				selectedMultiCityInfo && selectedMultiCityInfo.length
+					? selectedMultiCityInfo[0]?.date
+					: "";
+			const date = formatDate(multiCityDateTime,UTIL_CONSTANTS.DAY_SLASH_MONTH);
+			journeyDate = date.replace("/", " ");
+		}
+
+		if (enddateAndTime && journeyType !== journeyTypeCode?.MULTI_CITY) {
+			const endDdate = formatDate(enddateAndTime,UTIL_CONSTANTS.DAY_SLASH_MONTH)
+				.replace("/", " ");
+			journeyDate = journeyDate.concat(` - ${endDdate}`);
+		}
+
+		const openModifyBookingWidget = (config) =>
+			new CustomEvent("openModifyBookingWidget", config);
+
+		const modifySearchClicked = () => {
+			document.dispatchEvent(
+				openModifyBookingWidget({
+					bubbles: true,
+					detail: { open: true },
+				})
+			);
+		};
+
+		const getModifySearchprops = {
+			departureDestination: (departureDestination || "").replace("Airport", ""),
+			arrivalDestination: (arrivalDestination || "").replace("Airport", ""),
+			journeyDate,
+			journeyType,
+			paxCount: `${count} ${paxLabel}`,
+			ctaLabel: modifySearchLabel,
+			modifySearchClickHandler: modifySearchClicked,
+		};
+		return getModifySearchprops;
+	},
+};
+
+export default helper;
