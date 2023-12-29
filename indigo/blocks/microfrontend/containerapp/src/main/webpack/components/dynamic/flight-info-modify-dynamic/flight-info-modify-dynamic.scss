@@ -1,0 +1,253 @@
+$gray-5: #555;
+$gray-c: #ccc;
+$button-font-color: #fff;
+$button-bg-color: #001b94;
+$button-bg-color-secondary: #027cff;
+$button-bg-color-tertiary: #f4f4f8;
+$button-bg-color-disabled: #ebebeb;
+$disabled-font: #666;
+
+.srp-header-flight-info-modify-dynamic {
+	margin-left: 16px;
+}
+
+.skyplus-modify-search {
+	display: flex;
+	column-gap: rem(16px);
+	align-items: center;
+
+	@include media("<desktop") {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	@include media("<tablet") {
+		width: 100%;
+		justify-content: space-around;
+	}
+
+	&__left {
+		background: #fff;
+		@include media("<tablet") {
+			margin-left: 15px;
+		}
+		&__destinations {
+			font-size: rem(16px);
+			&__departure.departure-one-way {
+				&::after {
+					@include indigoIcon;
+					content: "\e9e4";
+					font-size: rem(12px);
+					margin: 0 rem(4px);
+					color: $gray-5;
+				}
+			}
+			&__departure.departure-two-way {
+				&::after {
+					@include indigoIcon;
+					content: "\e91d";
+					font-size: rem(12px);
+					margin: 0 rem(4px);
+					color: $gray-5;
+				}
+			}
+		}
+		&__pax {
+			font-size: rem(10px);
+			color: $gray-5;
+			&__date {
+				display: inline-flex;
+				align-items: center;
+				&::after {
+					@include indigoIcon;
+					content: "\f111";
+					margin: 0 4px;
+					color: $gray-c;
+					font-size: rem(4px);
+				}
+			}
+		}
+	}
+	&__right {
+		&__modify-search-btn {
+			font-size: 14px;
+			padding: rem(4px) rem(8px);
+			min-width: unset;
+			height: rem(30px);
+		}
+	}
+}
+
+.custom-button {
+	background: $button-bg-color;
+	width: 100%;
+	height: rem(50px);
+	padding: rem(12px) rem(0px);
+	text-align: center;
+	border: 1px solid $button-bg-color;
+	border-radius: 4px;
+	font-size: 16px;
+	min-width: rem(220px);
+	font-weight: normal;
+	color: $button-font-color;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	text-transform: unset;
+	line-height: rem(26px);
+	letter-spacing: rem(0.46px);
+
+	@include media(">=tablet") {
+		width: auto;
+	}
+
+	/*&:hover {
+    background-color: $button-bg-color;
+    border-color: $button-bg-color;
+  }*/
+
+	&--secondary {
+		background-color: $button-bg-color-secondary;
+		border: 1px solid $button-bg-color-secondary;
+	}
+
+	&--tertiary {
+		background-color: $button-bg-color-tertiary;
+		border: 1px solid $button-bg-color-tertiary;
+		color: $button-bg-color-secondary;
+	}
+
+	&--disabled {
+		background-color: $button-bg-color-disabled;
+		border: 1px solid $button-bg-color-disabled;
+		color: $disabled-font;
+		opacity: 1 !important;
+		pointer-events: unset !important;
+	}
+
+	&--loading {
+		& .custom-button__label {
+			display: none;
+		}
+
+		& .custom-button__loading__circle {
+			display: block;
+		}
+	}
+
+	&__loading__circle {
+		display: none;
+		position: relative;
+		width: rem(8px);
+		height: rem(8px);
+		border-radius: rem(4px);
+		background-color: $button-bg-color-secondary;
+		color: $button-bg-color-secondary;
+		animation: buttonLoading 1s infinite linear alternate;
+		animation-delay: 0.5s;
+		left: calc(50% - 0.25rem);
+
+		&::before,
+		&::after {
+			content: "";
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			width: rem(8px);
+			height: rem(8px);
+			border-radius: rem(4px);
+			background-color: $button-bg-color-secondary;
+			color: $button-bg-color-secondary;
+			animation: buttonLoading 1s infinite alternate;
+		}
+
+		&::before {
+			left: rem(-18px);
+			animation-delay: 0s;
+		}
+
+		&::after {
+			left: rem(18px);
+			animation-delay: 1s;
+		}
+	}
+}
+
+@keyframes buttonLoading {
+	0% {
+		background-color: $button-font-color;
+	}
+	50% {
+		background-color: $button-font-color;
+	}
+	100% {
+		background-color: $button-bg-color-secondary;
+	}
+}
+
+.Modify-search-wrap {
+	margin-left: rem(100px);
+	height: 100%;
+}
+
+.hideFlyout {
+	visibility: hidden;
+	opacity: 0;
+	scroll-behavior: smooth;
+	transition: visibility 0s 0.5s, opacity 0.5s linear;
+	pointer-events: none;
+}
+
+.showFlyout {
+	opacity: 1;
+	visibility: visible;
+	scroll-behavior: smooth;
+	transition: opacity 0.5s linear;
+}
+
+
+.skyplus6e-header__flight-info-modify {
+	position: absolute;
+	top: -5px;
+	left: 30px;
+	width: calc(100vw - 50px);
+	z-index: 11;
+}
+.skyplus6e-header__logo {
+	position: relative;
+	z-index: 12;
+}
+@include media("<desktop") {
+	.skyplus-modify-search__right
+		.skyplus-modify-search__right__modify-search-btn {
+		background: white;
+		border: none;
+		border-radius: 4px;
+		color: #027bff;
+		font-size: 14px;
+		font-weight: 600;
+		padding: 3px 15px;
+		transform: translateX(16px);
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.skyplus-modify-search__right
+		.skyplus-modify-search__right__modify-search-btn {
+		background: white;
+		border: none;
+		border-radius: 4px;
+		color: #027bff;
+		font-size: 12px;
+		font-weight: 600;
+		padding: 3px 4px !important;
+		transform: translateX(16px);
+	}
+}
+
+@include media(">=desktop") {
+	.skyplus6e-header__flight-info-modify {
+		position: static;
+		width: auto;
+	}
+}

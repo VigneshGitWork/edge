@@ -1,0 +1,206 @@
+.skyplus6e-header__link-loggedin-container {
+	position: relative;
+
+	.indigo-cash-label {
+		font-weight: unset;
+	}
+
+	&__button {
+		padding: 0;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		background: transparent;
+
+		&.hide-on-mobile {
+			@include media("<=tablet") {
+				display: none;
+			}
+		}
+
+		&__text {
+			width: 28px;
+			height: 28px;
+			color: white;
+			margin-right: 8px;
+			border-radius: 50%;
+			// background: #027bff;
+			// border: 1px solid white;
+			// padding: 6px 7px 6px 7px;
+			box-shadow: inset 0 0 0 1px white;
+			font-size: 12px;
+			font-weight: 600;
+			line-height: 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&__icon {
+			margin-top: -5px;
+			&::before {
+				font-size: 0.7rem;
+				color: white;
+			}
+		}
+	}
+
+	&__options-list {
+		@include media(">tablet") {
+			right: 0;
+		}
+		min-width: rem(240px);
+		top: 39px;
+		padding: 20px 16px;
+		padding-bottom: 0;
+		position: absolute;
+		background: white;
+		border-radius: 2px;
+		border: 1px solid white;
+
+		&::after {
+			width: 0;
+			height: 0;
+			top: -10px;
+			right: 16px;
+			content: "";
+			position: absolute;
+			display: inline-block;
+			border-right: 10px solid transparent;
+			border-bottom: 10px solid white;
+			border-left: 10px solid transparent;
+		}
+
+		a,
+		button {
+			cursor: pointer;
+		}
+
+		&.show {
+			&__items {
+				height: 100%;
+			}
+		}
+
+		&__items {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			&__item {
+				border-bottom: solid 1px #f5f5f5;
+
+				&:last-child {
+					border-bottom-color: transparent;
+				}
+
+				&:hover {
+					background-color: #daf1ff;
+					a,
+					button {
+						color: black;
+					}
+					&:first-child {
+						background-color: transparent;
+					}
+				}
+				&__view-profile {
+					padding: 10px 0;
+					white-space: nowrap;
+
+					display: flex;
+					align-items: center;
+					flex-direction: row;
+					&:hover {
+						a {
+							color: #027bff;
+						}
+					}
+					p {
+						line-height: 1;
+					}
+					&__initial {
+						width: 64px;
+						height: 64px;
+						font-size: 27px;
+						color: white;
+						font-weight: 600;
+						border-radius: 50%;
+						background: #027bff;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+					&__inner {
+						margin-left: 16px;
+
+						display: flex;
+						flex-direction: column;
+						align-items: flex-start;
+						justify-content: center;
+						.user-name {
+							font-size: 16px;
+							font-weight: bold;
+						}
+
+						.view-profile-link {
+							color: #027bff;
+							font-size: 13px;
+							font-weight: 600;
+							&:hover {
+								color: #027bff;
+							}
+						}
+					}
+				}
+
+				&__content {
+					a {
+						margin: 0;
+						color: black;
+						padding: 16px 0;
+						padding-left: 4px;
+
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						justify-content: space-between;
+						white-space: nowrap;
+
+						span {
+							font-size: 16px;
+							color: black;
+							&:first-child {
+								font-weight: 500;
+							}
+
+							&.content__link__left {
+								font-weight: 600;
+							}
+							&.content__link__right {
+								font-weight: 600;
+							}
+						}
+					}
+
+					&.logout-button {
+						width: 100%;
+						text-align: left;
+						// color: #555;
+						color: black;
+						padding: 16px 0;
+						font-size: 16px;
+						padding-left: 4px;
+						background: transparent;
+					}
+				}
+			}
+		}
+	}
+}
+
+.skyplus6e-header {
+	&__persona-login-button {
+		margin-left: 12px;
+		color: black;
+	}
+}

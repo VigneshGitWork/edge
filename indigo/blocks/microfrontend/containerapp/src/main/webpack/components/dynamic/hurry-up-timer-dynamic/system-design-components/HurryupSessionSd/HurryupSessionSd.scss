@@ -1,0 +1,147 @@
+/*----- Hurry session popup scss start----------*/
+.popup-modal-with-content-container-app__container {
+  &.hurryup-session-popup {
+    z-index: 1000000;
+    align-items: flex-start !important;
+    
+    .popup-modal-with-content-container-app__content {
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 0;
+      &-container {
+        width: 100%;
+        margin: 0;
+        max-width: 100%;
+        padding: 0;
+      }
+      .popup-modal-with-content-container-app__close-overlay-button {
+        display: none;
+      }
+    }
+    .session-popup {
+      display: none;
+      font-family: "Open Sans", Arial, sans-serif;
+
+      * {
+        font-family: inherit;
+      }
+
+      &.show {
+        display: block;
+      }
+
+      &__popup-cont {
+        max-width: none;
+        display: block;
+        margin-top: rem(0px);
+        padding: 0;
+      }
+
+      &__content {
+        margin: 0;
+        background: get-color("indigo-blue1");
+        padding: rem(10px);
+        text-align: center;
+        color: get-color("white");
+        font-size: rem(18px);
+        border-radius: 0;
+        line-height: rem(22px);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &__message {
+          p {
+            font-size: 18px;
+            @include media(">tablet") {
+              margin-bottom: 0;
+              margin-right: 0.75rem;
+            }
+          }
+        }
+
+        > div {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+          @include media(">=desktop") {
+            flex-direction: row;
+          }
+        }
+
+        strong {
+          font-size: rem(22px);
+          padding-left: rem(4px);
+        }
+
+        a {
+          color: get-color("white");
+          text-decoration: underline;
+          padding-left: rem(8px);
+          margin-left: rem(0px);
+
+          @include media(">=desktop") {
+            margin-left: rem(4px);
+          }
+        }
+
+        &__content__timer {
+          margin-left: rem(10px);
+        }
+
+        button {
+          padding: 0;
+          color: white;
+          line-height: 1.2;
+          text-transform: unset;
+          text-decoration: underline;
+          background: transparent;
+        }
+
+        &__continue {
+          margin-left: unset;
+          @include media(">=desktop") {
+            margin-left: 4px;
+          }
+        }
+        &__cancel {
+          padding-right: rem(0px);
+          margin-left: rem(0px);
+          margin-right: rem(8px);
+          @include media(">=desktop") {
+            right: 0;
+            position: absolute;
+            margin-right: 24px;
+            padding-right: rem(16px);
+          }
+        }
+        &__left {
+          width: auto;
+          flex-direction: row;
+          display: flex;
+          align-items: flex-end ;
+          justify-content: center;
+          @include media(">=desktop") {
+            align-items: center;
+          }
+        }
+        &__right{
+          width: auto;
+          display: flex;
+          align-items: center;
+          flex-direction: row-reverse;
+          margin-top: rem(4px);
+          @include media(">=desktop") {
+            flex-direction: row;
+            margin-top:unset;
+          }
+        }
+      }
+    }
+  }
+}
+/*----- Hurry session popup scss end----------*/

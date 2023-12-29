@@ -1,0 +1,184 @@
+.indigo-animation {
+	position: fixed;
+	z-index: 99998;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	animation: 24s linear sky;
+	background-color: $skyblue-2;
+
+	&::after {
+		position: absolute;
+		z-index: 0;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		content: "";
+	}
+
+	&__cloud--back {
+		top: 6%;
+		right: 0;
+		left: 36%;
+		animation: 2s linear infinite cloudBack;
+		fill: $white;
+	}
+
+	&__cloud--middle {
+		top: 22%;
+		left: 50%;
+		width: 6rem;
+		height: 2rem;
+		animation: 2s linear infinite cloudMiddle;
+		fill: $white;
+	}
+
+	&__plane {
+		position: absolute;
+		z-index: 2;
+		top: calc(40% - (12rem / 2));
+		left: calc(50% - (26rem / 2));
+		width: rem(400px);
+		height: rem(200px);
+		animation: 2s ease-in-out takeOff,
+			2s ease-in-out infinite alternate flight 2s;
+
+		&--shadow {
+			bottom: rem(2px);
+			left: calc(54% - (8rem / 2));
+			width: 8rem;
+			height: 2rem;
+			animation: 2s ease-in-out takeOffShadow,
+				4s ease-in-out infinite alternate flightShadow 2s;
+			border-radius: 50%;
+			background-color: $black;
+		}
+	}
+
+	&__cloud--front {
+		z-index: 2;
+		top: 50%;
+		left: 0;
+		width: 8rem;
+		height: 4rem;
+		animation: 2s linear infinite cloudFront;
+		fill: $white;
+	}
+
+	.img-indigo-plane {
+		position: absolute;
+		top: rem(10px);
+		width: 24%;
+		height: 100%;
+		left: 36%;
+		@include media(">=tablet") {
+			top: rem(-50px);
+		}
+	}
+
+	.plane-takeoff {
+		-webkit-animation: takeOff 10s infinite alternate;
+		animation: takeOff 10s infinite alternate;
+	}
+	.plane-flight {
+		-webkit-animation: flight 10s infinite alternate;
+		animation: flight 10s infinite alternate;
+	}
+
+	.indigo-animation__loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: rem(4px);
+		background-color: $black;
+
+		&::after {
+			position: absolute;
+			display: block;
+			overflow: hidden;
+			width: 100%;
+			height: 100%;
+			content: "";
+			animation: 1.5s ease-in-out infinite loader;
+			background-color: $white;
+		}
+	}
+
+	.indigo-animation__plane {
+		top: calc(40% - (rem(100px) / 2));
+		left: calc(50% - (rem(250px) / 2));
+		width: rem(250px);
+		height: rem(100px);
+
+		@include media(">=tablet") {
+			position: absolute;
+			z-index: 2;
+			top: calc(40% - (rem(200px) / 2));
+			left: calc(50% - (rem(400px) / 2));
+			width: rem(400px);
+			height: rem(200px);
+			animation: 2s ease-in-out takeOff,
+				2s ease-in-out infinite alternate flight 2s;
+		}
+	}
+	.indigo-loading-text {
+		font-size: rem(13px);
+		line-height: rem(25px);
+		position: absolute;
+		top: calc(50% + 70px);
+		width: 100%;
+		text-align: center;
+		color: $gray-6;
+
+		b {
+			font-size: rem(18px);
+			color: $gray-2;
+		}
+	}
+
+	.flight-loader-info {
+		font-size: rem(16px);
+		position: absolute;
+		top: calc(50% + 120px);
+		width: 100%;
+		text-align: center;
+		color: $gray-2;
+
+		i {
+			padding: 0 rem(6px);
+			font-size: rem(12px);
+		}
+
+		i.icon-arrow-right {
+			font-size: rem(8px);
+			position: relative;
+			top: rem(-2px);
+		}
+
+		.f-date {
+			font-size: rem(13px);
+			margin-top: rem(6px);
+			color: $gray-5;
+		}
+		hr {
+			width: rem(50px);
+			margin: rem(20px) auto;
+			border-color: $gray-5;
+		}
+	}
+
+	svg {
+		overflow: hidden;
+		vertical-align: middle;
+	}
+}
+
+.indigo-animation [class*="indigo-animation__"],
+.indigo-animation [class^="indigo-animation__"] {
+	position: absolute;
+}

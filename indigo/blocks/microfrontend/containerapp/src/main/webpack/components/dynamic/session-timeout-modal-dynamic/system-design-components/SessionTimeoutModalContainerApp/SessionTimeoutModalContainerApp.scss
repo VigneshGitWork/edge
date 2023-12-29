@@ -1,0 +1,155 @@
+.popup-modal-with-content-session-timeout-container-app {
+  &.sessiontimeoutmodal {
+    font-family: "Open Sans", Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    * {
+      font-family: inherit;
+    }
+
+    .popup-modal-with-content-session-timeout-container-app__close-overlay-button {
+      top: rem(0px);
+      left: rem(0px);
+      width: rem(36px);
+      height: rem(36px);
+      position: relative;
+      @include media(">=desktop") {
+        top: unset;
+        left: unset;
+      }
+    }
+
+    .popup-modal-with-content-session-timeout-container-app__content {
+      top: unset;
+      left: unset;
+      width: unset;
+      border-radius: rem(2px);
+      border: solid 1px #ccc;
+      padding: rem(20px) rem(10px);
+      box-shadow: rem(1px) rem(3px) rem(10px) rem(2px) rgba(213, 213, 213, 0.5);
+      height: 100%;
+      position: relative;
+      min-width: unset;
+      @include media(">=540px") {
+        height: auto;
+        min-width: rem(640px);
+      }
+      
+      @include media(">=desktop") {
+        padding: rem(32px);
+        height: unset;
+        min-width: rem(640px);
+      }
+    }
+
+    .session-generic-modal {
+      display: flex;
+      align-items: center;
+
+      padding: unset;
+      background-color: get-color("white");
+      
+      &__content {
+        width: 100%;
+        @include media(">=767px") {
+          height: auto;
+        }
+      }
+
+      &__body {
+        text-align: center;
+        padding: rem(12px);
+        
+        .session-modal__image {
+          width: rem(100px);
+          height: rem(100px);
+          border-style: none;
+          display: inline-block;
+          vertical-align: middle;
+          padding: rem(16px) 0;
+          object-fit: contain;
+          @include media(">=desktop") {
+            width: rem(120px);
+            height: rem(120px);
+          }
+        }
+        .message p {
+          font-size: $font-size-large;
+          font-weight: bold;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          margin-bottom: rem(16px);
+          @include media(">=desktop") {
+            font-size: 28px;
+          }
+        }
+      }
+
+      &__footer {
+        margin-top: rem(24px);
+        text-align: center;
+        padding: rem(4px);
+        @include media(">=desktop") {
+          margin-top: rem(35px);
+        }
+        .btn-group {
+          display: flex;
+          gap: rem(18px);
+          justify-content: center;
+          margin-bottom: rem(24px);
+          
+          @include media("<=phone-m") {
+            flex-direction: column;
+          }
+
+          @include media(">=tablet") {
+            flex-direction: row;
+          }
+
+          .anchor-btn {
+            border-radius: rem(4px);
+            font-size: $font-size-medium;
+            font-weight: 600;
+            font-style: normal;
+            text-transform: capitalize;
+            border: none;
+            padding: 0;
+            min-width: unset;
+            height: rem(50px);
+            width: rem(177px);
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include media("<=phone-m") {
+              width: 100%;
+            }
+
+            &--refresh {
+              background-color: get-color("light-grayish-blue");
+              color: get-color("blue-link");
+            }
+
+            &--continue {
+              background-color: get-color("sapphire-blue");
+              color: get-color("white");
+            }
+          }
+        }
+
+        .paragraph p {
+          font-size: 14px;
+          color: #555;
+          font-weight: normal;
+          line-height: normal;
+        }
+      }
+    }
+  }
+}

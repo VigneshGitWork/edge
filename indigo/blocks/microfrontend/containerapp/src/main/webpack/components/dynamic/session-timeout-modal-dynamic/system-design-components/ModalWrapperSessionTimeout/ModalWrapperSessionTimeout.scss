@@ -1,0 +1,85 @@
+$font-color: get-color("gray-2");
+
+.popup-modal-with-content-session-timeout-container-app {
+	top: 0;
+	left: 0;
+	z-index: 999999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	overflow: scroll;
+	background: transparent;
+	overflow-y: scroll;
+	color: $font-color;
+
+	&__header {
+		display: flex;
+		column-gap: rem(16px);
+		&__title {
+			font-size: rem(16px);
+			font-weight: 700;
+		}
+	}
+
+	&__bg-overlay {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: transparent;
+		@include media(">=tablet") {
+			background: rgba(get-color("white"), 0.9);
+		}
+	}
+
+	&__content {
+		position: unset !important;
+		transform: unset !important;
+		padding: 30px;
+		width: 100%;
+		background-color: $white;
+		height: 100vh;
+
+		@include media(">=tablet") {
+			width: 60%;
+			background-color: $white;
+			border-radius: 8px;
+			box-shadow: 0 0 10px -4px #777;
+			height: auto;
+		}
+	}
+
+	&__close-overlay-button {
+		padding: 0;
+		background: transparent;
+		margin: 0;
+		line-height: normal;
+
+		&__icon {
+			&--close::before {
+				font-size: 15px;
+				content: $ico-moon-close;
+			}
+		}
+	}
+	.visibility-hidden {
+		visibility: hidden;
+	}
+}
+
+.no-scroll-session-timeout-container-app {
+	overflow: hidden;
+}
+
+.upsell-default {
+	.popup-modal-with-content-session-timeout-container-app__content {
+		width: rem(550px);
+	}
+}
+
+// .popupContentClassForSRP {
+//   position: relative !important;
+//   max-width: 660px;
+//   margin: auto;
+// }

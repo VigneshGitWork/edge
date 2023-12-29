@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkskyplus_container_app=self.webpackChunkskyplus_container_app||[]).push([[1566],{1566:function(n,s,p){p.r(s),p.d(s,{configJson:function(){return u}});var u={}}}]);
