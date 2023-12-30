@@ -65,10 +65,10 @@ export default function decorate(block) {
     remoteUrl = "https://app-booking-qa-skyplus6e.goindigo.in/remoteEntry.js";
     const envConfig = `${mfBaseUrl}/config/env-config.js`;
 
-    setTimeout(async () => {
-        await loadScript(remoteUrl);
-        await loadScript(envConfig);
-    });
+   
+        loadScript(remoteUrl);
+        loadScript(envConfig);
+   
     loadCSS("https://app-static-uat-skyplus6e.goindigo.in/des-system/css/main.css")
 
     const cols = [...block.firstElementChild.children];
