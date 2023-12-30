@@ -62,7 +62,7 @@ export default function decorate(block) {
     mfBaseUrl = stripTrailingSlash(mfBaseUrl); // since we have to add end slash from code hence removing one if present.
 
     let remoteUrl = `${mfBaseUrl}/remoteEntry.js`
-    // remoteUrl = "http://localhost:8081/remoteEntry.js";
+    remoteUrl = "https://app-booking-qa-skyplus6e.goindigo.in/remoteEntry.js";
     const envConfig = `${mfBaseUrl}/config/env-config.js`;
 
     setTimeout(async () => {
