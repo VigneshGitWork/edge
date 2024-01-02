@@ -32,6 +32,8 @@ export default function decorate(block) {
         rootElement.setAttribute(`data-${key}`, value)
     })
     document.body.appendChild(rootElement);
+    
+     document.querySelector("[data-block-name='microfrontend']").innerHTML="";
     document.querySelector("[data-block-name='microfrontend']").appendChild(
         document.querySelector(`[data-component=${componentname}]`));
     // rootElement.setAttribute("data-page-type", "homepage")
@@ -74,6 +76,6 @@ export default function decorate(block) {
     const cols = [...block.firstElementChild.children];
     console.log("---decorade: microfronend", block, cols)
     setTimeout(async () => {
-        loadScript("./blocks/microfrontend/containerapp/dist/clientlib-site/site.js")
+        await loadScript("./blocks/microfrontend/containerapp/dist/clientlib-site/site.js")
     }, 1000)
 }
