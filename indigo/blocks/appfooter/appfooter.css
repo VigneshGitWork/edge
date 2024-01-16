@@ -1,0 +1,33 @@
+.appfooter {
+    display: flex;
+    margin-top: 40px;
+}
+.appfooter ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.appfooter li {
+    line-height: 24px;
+    padding-bottom: 7px;
+}
+
+.appfooter a {
+    font-size: 14px;
+    color: #21242d;
+    text-decoration: none;
+}
+.appfooter a:hover {
+    text-decoration: underline;
+}
+
+.appfooter > div {
+    flex: 1;
+}
+
+@media screen and (max-width: 480px) {
+    .appfooter {
+        flex-direction: column;
+        text-align: center;
+    }
+}
