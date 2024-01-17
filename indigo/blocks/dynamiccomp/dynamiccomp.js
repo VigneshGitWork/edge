@@ -2,7 +2,7 @@
 export default function decorate(block) {
     console.log("---dynamic comp::::", block, this)
     let variation = "";
-    let content = "";
+    let contentHtml = "";
 
     [...block.children].forEach((row, rowIndex) => {
         [...row.children].forEach((col, colIndex) => {
@@ -10,15 +10,14 @@ export default function decorate(block) {
                 variation = col.textContent;
             }
             if (rowIndex === 1 && colIndex === 1) {
-                content = col;
+                contentHtml = col.innerHTML;
             }
         })
     })
 
-    block.innerHTML = "";
-    block.appendChild(content);
+    block.innerHTML = contentHtml;
     if (variation) {
         const splited = variation.split(",")
-        block.classList.add(...splited);
+        block.children[0].classList.add(...splited);
     }
 }
