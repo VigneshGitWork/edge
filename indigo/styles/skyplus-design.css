@@ -1,0 +1,56 @@
+.skyplus-edge-design h2 {
+
+    margin-top: 40px;
+    margin-bottom: 12px;
+
+    span {
+        font-size: 24px;
+
+        @media (width <480px) {
+
+            font-size: 20px;
+        }
+
+
+    }
+
+}
+
+.skyplus-edge-design p {
+
+    font-size: 16px;
+    line-height: 26px;
+    margin-top: 14px;
+
+}
+
+.skyplus-edge-design ul,
+.skyplus-edge-design ol,
+ul.skyplus-edge-design,
+ol.skyplus-edge-design {
+
+    margin-top: 20px;
+    padding-left: 20px;
+
+    li {
+
+        font-size: 16px !important;
+        margin-bottom: 11px !important;
+        line-height: 33px;
+        color: #555;
+
+        @media (width < 480px) {
+            line-height: 29px;
+        }
+
+    }
+
+}
+
+.skyplus-edge-design table {
+    border: 1px solid #dedede !important;
+}
+
+.skyplus-edge-design h5 {
+    line-height: 28px;
+}

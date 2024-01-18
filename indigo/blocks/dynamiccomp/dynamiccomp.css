@@ -3,6 +3,10 @@
     background: #f4f4f8;
 }
 
+.skyplus-list--no-list-style {
+    list-style: none;
+}
+
 .skyplus-col-1 {
     column-count: 1;
 }

@@ -1,4 +1,10 @@
 
+const variationList = {
+    faqContent: "faq-content",
+    list: "skyplus-list",
+    list_without_bullet: "skyplus-list--no-list-style"
+}
+
 export default function decorate(block) {
     console.log("---dynamic comp::::", block, this)
     let variation = "";
@@ -17,7 +23,12 @@ export default function decorate(block) {
 
     block.innerHTML = contentHtml;
     if (variation) {
-        const splited = variation.split(",")
-        block.children[0].classList.add(...splited);
+        const splited = variation.split(",").concat("skyplus-edge-design")
+        if (splited.includes(variationList.list)) {
+            block.querySelector("ul")?.classList.add(...splited);
+            block.querySelector("ol")?.classList.add(...splited);
+        } else {
+            block.classList.add(...splited);
+        }
     }
 }
