@@ -109,6 +109,8 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
+  loadCSS(`${window.hlx.codeBasePath}/styles/skyplus-design.css`);
+  document.querySelector("main > .section").classList.add("skyplus-edge-design");
   loadFonts();
 
   sampleRUM('lazy');
