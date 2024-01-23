@@ -5,5 +5,4 @@ export default async function decorate(block) {
     document.head.appendChild(script);
     // }, 9000)
     block.classList.add("skyplus-indigo-global-wrapper-v1")
-    skyinstance="skyplus-edge";
 }
