@@ -1,4 +1,6 @@
-
+// var script = document.createElement('script');
+// script.src = 'https://aem-dev-skyplus6e.goindigo.in/content/experience-fragments/skyplus6e/in/en/edge/bw.js?test';
+// document.head.appendChild(script);
 import { loadCSS, loadScript } from "../../scripts/aem.js";
 export default async function decorate(block) {
     const widget = document.createElement("div");
@@ -6,9 +8,9 @@ export default async function decorate(block) {
     widget.setAttribute("data-component", "mf-booking-widget")
     widget.setAttribute("data-mf-id", "mf-booking-widget")
     widget.setAttribute("data-persona", "Member")
-block.innerHTML="";
+    // widget.setAttribute("id", "booking___app")
+    block.innerHTML="";
     block.appendChild(widget);
- 
     const config = {
         mfBase: "https://app-booking-dev-skyplus6e.goindigo.in",
     };
@@ -35,4 +37,3 @@ block.innerHTML="";
         await loadScript(remoteUrl);
     })
 }
- 
