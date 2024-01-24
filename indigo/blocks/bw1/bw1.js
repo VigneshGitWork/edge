@@ -1,3 +1,4 @@
+
 import { loadCSS, loadScript } from "../../scripts/aem.js";
 export default async function decorate(block) {
     const widget = document.createElement("div");
@@ -5,14 +6,22 @@ export default async function decorate(block) {
     widget.setAttribute("data-component", "mf-booking-widget")
     widget.setAttribute("data-mf-id", "mf-booking-widget")
     widget.setAttribute("data-persona", "Member")
-    document.querySelector("[data-block-name='bw']").appendChild(widget);
+block.innerHTML="";
+    block.appendChild(widget);
+ 
     const config = {
         mfBase: "https://app-booking-dev-skyplus6e.goindigo.in",
     };
     [...block.children].forEach((row, rowIndex) => {
+        let rowName;
         [...row.children].forEach((col, colIndex) => {
-            const rowName = row.textContent;
-            config[rowName] = col.textContent;
+            console.log("---rrr:::", col, row)
+            if (colIndex === 0) {
+                rowName = col.textContent;
+            } else {
+ 
+                config[rowName] = col.textContent;
+            }
         })
     })
     console.log("-----bw---matchd:::::", config)
@@ -26,3 +35,4 @@ export default async function decorate(block) {
         await loadScript(remoteUrl);
     })
 }
+ 
