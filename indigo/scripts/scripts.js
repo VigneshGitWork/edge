@@ -110,7 +110,7 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadCSS(`${window.hlx.codeBasePath}/styles/skyplus-design.css`);
-  document.querySelector("main > .section").classList.add("skyplus-edge-design");
+  document.querySelector(".default-content-wrapper").classList.add("skyplus-edge-design");
   loadFonts();
 
   sampleRUM('lazy');
